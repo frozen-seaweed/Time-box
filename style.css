@@ -1,0 +1,102 @@
+@charset "UTF-8";
+@import url(./edundot.ttf);
+/* reset */
+html,
+body,
+div,
+span {
+    margin: 0;
+    padding: 0;
+}
+/* body */
+html,
+body,
+.wrap {
+    height: 100%;
+    font-family: "Edit Undo Dot BRK", sans-serif;
+}
+.scene {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: #000;
+}
+.cube {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    transform-style: preserve-3d;
+    transform: rotateX(-30deg) rotateY(225deg);
+    transition: 0.6s;
+}
+.cube:hover {
+    transform: rotateX(150deg) rotateY(225deg) translateY(0px);
+}
+.cube:hover .face {
+    color: #000;
+    background-color: rgb(228, 228, 228);
+}
+.cube:hover .bottom .txt,
+.cube:hover .left_rv .txt,
+.cube:hover .right_rv .txt {
+    display: block;
+}
+.cube:hover .top .txt,
+.cube:hover .left .txt,
+.cube:hover .right .txt {
+    display: none;
+}
+.face {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    color: #fff;
+    animation: box 2s ease-in-out infinite;
+    animation-direction: alternate;
+}
+.top {
+    transform: rotateX(90deg) rotateZ(180deg) translate3d(0, 0, 190px);
+}
+.left {
+    transform: rotateY(90deg) translateY(-10px) translate3d(0, 0, 180px);
+}
+.right {
+    transform: rotateY(180deg) translateY(-10px) translate3d(0, 0, 180px);
+}
+.bottom {
+    transform: rotateX(-90deg) rotateZ(90deg) translate3d(0, 0, 190px);
+}
+.left_rv {
+    transform: rotateX(180deg) rotateY(180deg) translateY(-10px)
+        translate3d(0, 0, 180px);
+}
+.right_rv {
+    transform: rotateX(180deg) rotateY(270deg) translateY(-10px)
+        translate3d(0, 0, 180px);
+}
+.txt {
+    display: block;
+    margin-left: 30px;
+    font-size: 180px;
+    font-weight: bold;
+    letter-spacing: 10px;
+}
+.bottom .txt,
+.left_rv .txt,
+.right_rv .txt {
+    display: none;
+}
+/* keyframe */
+@keyframes box {
+    from {
+        box-shadow: 0 0 8px #fff;
+    }
+    to {
+        box-shadow: 0 0 15px #fff;
+    }
+}
